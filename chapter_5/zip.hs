@@ -10,4 +10,4 @@ sorted xs = and[x <= y | (x,y) <- pairs xs] -- Uses lazy evaluation
 
 positions :: Eq a => a -> [a] -> [Int]
 positions x xs = [i | (x', i) <- zip xs [0..], x == x'] -- Uses Lazy evaluation eventhough [0..] is notionally infinite, only elements in the provided list are considered
-jl
+
