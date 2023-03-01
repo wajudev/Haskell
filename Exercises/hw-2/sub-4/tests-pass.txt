@@ -1,0 +1,6 @@
+joinr 6 []
+joinr 10 []
+joinr "foo" []
+joinr 3 []
+joinr 7.9 []
+joinr 1 []
