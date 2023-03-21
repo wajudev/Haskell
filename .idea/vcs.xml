@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/9780596514983" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/HaskellFL" vcs="Git" />
   </component>
 </project>

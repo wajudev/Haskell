@@ -16,6 +16,7 @@ import Data.List (group, sort)
 import System.Environment (getArgs)
 import System.Directory (doesDirectoryExist, getDirectoryContents)
 
+
 -- This line hides the Word type from the Prelude module, so that it doesn't clash with the Word type defined in this module.
 import Prelude hiding (Word)
 
@@ -38,7 +39,7 @@ toWordCount ws = WordCount (head ws) (length ws)
 
 -- This function takes a character and returns True if it should be considered part of a word, and False otherwise.
 isWordElem :: Char -> Bool
-isWordElem = (`notElem` ",.;:?!/'\"()[]--*")
+isWordElem = (`notElem` ",.;:?!/'\"()[]-*")
 
 -- This function takes a string and returns a list of the words in the string. It does this by first converting the string to lowercase, then filtering out any characters that shouldn't be considered part of a word, and finally using the words function to split the resulting string into a list of words
 wordList :: String -> [Word]

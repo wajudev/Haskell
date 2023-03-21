@@ -1,3 +1,4 @@
+import Test.QuickCheck
 import Data.List
 -- First past the post
 votes :: [String]
@@ -17,3 +18,4 @@ result vs = sort [(count v vs, v) | v <- rmdups vs]
 
 winner :: Ord a => [a] -> a
 winner = snd . last . result
+
