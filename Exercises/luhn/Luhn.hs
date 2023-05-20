@@ -20,7 +20,7 @@ module Luhn (isValid) where
 		| f x       = x : (filter f xs)
 		| otherwise = filter f xs
 
-	mod x y = let { res = (x / y) } 
+	mod x y = let { res = (x / y) }
 		in (x - (res * y))
 
 	map f [] = []
@@ -31,10 +31,10 @@ module Luhn (isValid) where
 
 	luhn []  = 0
 	luhn [x] = x
-	luhn (x0:(x1:xs)) = ((x0 + (2 * x1)) - 
+	luhn (x0:(x1:xs)) = ((x0 + (2 * x1)) -
 		(if x1 > 5 -- BUG
-			then 9 
-			else 0)) 
+			then 9
+			else 0))
 		+ (luhn xs)
 
 	checksum xs = mod (luhn (reverse (map digitToInt xs) [])) 10

@@ -1,4 +1,4 @@
-module BST (BST, bstLeft, bstRight, bstValue, empty, 
+module BST (BST, bstLeft, bstRight, bstValue, empty,
             fromList, insert, singleton, toList) where
 
     data BST a = Empty | BST (BST a) a (BST a) 
@@ -7,7 +7,7 @@ module BST (BST, bstLeft, bstRight, bstValue, empty,
     data Maybe a = Just a | Nothing
 
     foldl f z []     = z
-    foldl f z (x:xs) = let z' = f z x 
+    foldl f z (x:xs) = let z' = f z x
                         in foldl f z' xs
 
     bstLeft tree = let (BST left _ _) = tree

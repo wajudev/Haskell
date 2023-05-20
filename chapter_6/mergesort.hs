@@ -15,3 +15,4 @@ msort [] = []
 msort [x] = [x]
 msort xs = merge (msort (fst half)) (msort (snd half))
            where half = halve xs
+

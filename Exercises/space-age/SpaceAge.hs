@@ -1,4 +1,10 @@
-module SpaceAge where
+module SpaceAge (
+  main
+) where
+
+    import System.Environment (getArgs)
+    import Text.Read (readMaybe)
+    import Data.Maybe (fromJust)
 
     data Planet = Mercury
                 | Venus
@@ -8,10 +14,11 @@ module SpaceAge where
                 | Saturn
                 | Uranus
                 | Neptune
+      deriving (Show, Read)
 
     orbitalPeriod :: Planet -> Float
     orbitalPeriod planet =
-        let 
+        let
             earthYear = 31557600
         in 
             case planet of 
@@ -25,4 +32,31 @@ module SpaceAge where
                 Neptune -> 164.791320 * earthYear
 
     ageOn :: Planet -> Float -> Float
-    ageOn planet age = age / (orbitalPeriod planet) 
+    ageOn planet age = age / (orbitalPeriod planet)
+
+    readPlanet :: IO Planet
+    readPlanet = do
+        putStrLn "Enter a planet:"
+        planetStr <- getLine
+        case readMaybe planetStr of
+             Just planet -> return planet
+             Nothing -> do
+                 putStrLn "Invalid planet. Please enter a valid planet."
+                 readPlanet
+
+    readAge :: IO Float
+    readAge = do
+        putStrLn "Enter your age:"
+        ageStr <- getLine
+        case readMaybe ageStr of
+            Just age -> return age
+            Nothing -> do
+                putStrLn "Invalid age. Please enter a valid age."
+                readAge
+
+    main :: IO ()
+    main = do
+       planet <- readPlanet
+       age <- readAge
+       let ageOnPlanet = ageOn planet age
+       putStrLn $ "Your age on " ++ show planet ++ " is " ++ show ageOnPlanet ++ " years."
